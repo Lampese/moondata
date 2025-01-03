@@ -47,6 +47,7 @@ impl Gen {
   rand_array_uint64(Self, len~ : () -> Int = .., gen~ : () -> UInt64) -> () -> Array[UInt64]
   rand_bool(Self) -> () -> Bool
   rand_char(Self) -> () -> Char
+  rand_char_range(Self, Int, Int) -> () -> Char
   rand_double(Self, Double, Double) -> () -> Double
   rand_float(Self, Float, Float) -> () -> Float
   rand_int(Self, Int, Int) -> () -> Int
@@ -54,6 +55,7 @@ impl Gen {
   rand_string(Self, len~ : () -> Int = .., char_gen~ : () -> Char) -> () -> String
   rand_uint(Self, UInt, UInt) -> () -> UInt
   rand_uint64(Self, UInt64, UInt64) -> () -> UInt64
+  select[T](Self, Array[() -> T]) -> () -> T
 }
 
 pub struct Test {
@@ -62,7 +64,7 @@ pub struct Test {
 }
 impl Test {
   new(name~ : String, arg~ : Array[(Array[A], Int)]) -> Self
-  run(Self, output_dir~ : String) -> Unit
+  run(Self, output_dir~ : String, filename~ : String) -> Unit
 }
 
 // Type aliases

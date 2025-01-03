@@ -4,9 +4,7 @@ struct Gen {
 }
 
 ///|
-pub fn Gen::new(
-  state~ : Bytes = b"ABCDEFGHIJKLMNOPQRSTUVWXYZ123456"
-) -> Gen {
+pub fn Gen::new(state~ : Bytes = b"ABCDEFGHIJKLMNOPQRSTUVWXYZ123456") -> Gen {
   { gen: @random.new(seed=state) }
 }
 
@@ -48,6 +46,11 @@ pub fn rand_uint64(self : Gen, l : UInt64, r : UInt64) -> () -> UInt64 {
 ///|
 pub fn rand_char(self : Gen) -> () -> Char {
   fn() { Char::from_int(self.rand_int(0, 255)()) }
+}
+
+///|
+pub fn rand_char_range(self : Gen, l : Int, r : Int) -> () -> Char {
+  fn() { Char::from_int(self.rand_int(l, r)()) }
 }
 
 ///|

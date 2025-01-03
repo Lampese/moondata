@@ -37,7 +37,7 @@ pub fn to_string(self : A) -> String {
     Int(x) => x().to_string()
     Float(x) => x().to_string()
     Double(x) => x().to_string()
-    String(x) => x()
+    String(x) => "\"\{x()}\""
     Bool(x) => x().to_string()
     Char(x) => x().to_string()
     Int64(x) => x().to_string()
@@ -69,20 +69,20 @@ pub fn gen_arg_code(arg : Array[A]) -> String {
 }
 
 ///|
-pub fn Test::run(self : Test, output_dir~ : String) -> Unit {
+pub fn Test::run(self : Test, output_dir~ : String, filename~ : String) -> Unit {
   let mut code = ""
   for x in self.arg {
     let (arg, idx) = x
     for i in 0..<idx {
       let arg_code = gen_arg_code(arg)
-      code += "    inspect!(\{self.name}(\{arg_code}))\n"
+      code += "  inspect!(\{self.name}(\{arg_code}))\n"
     }
   }
   let test_block =
     $|test {
     $|\{code}}
   @fs.write_string_to_file(
-    path=output_dir + "/" + self.name + ".mbt",
+    path=output_dir + "/" + filename + ".mbt",
     content=test_block,
   )
 }
