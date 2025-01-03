@@ -1,6 +1,6 @@
 ///|
 pub fn rand_array_int(
-  self : MoonData,
+  self : Gen,
   len~ : () -> Int = self.rand_int(1, 10),
   gen~ : () -> Int
 ) -> () -> Array[Int] {
@@ -16,7 +16,7 @@ pub fn rand_array_int(
 
 ///|
 pub fn rand_array_char(
-  self : MoonData,
+  self : Gen,
   len~ : () -> Int = self.rand_int(1, 10),
   gen~ : () -> Char
 ) -> () -> Array[Char] {
@@ -32,7 +32,7 @@ pub fn rand_array_char(
 
 ///|
 pub fn rand_array_string(
-  self : MoonData,
+  self : Gen,
   len~ : () -> Int = self.rand_int(1, 10),
   gen~ : () -> String
 ) -> () -> Array[String] {
@@ -48,7 +48,7 @@ pub fn rand_array_string(
 
 ///|
 pub fn rand_array_bool(
-  self : MoonData,
+  self : Gen,
   len~ : () -> Int = self.rand_int(1, 10),
   gen~ : () -> Bool
 ) -> () -> Array[Bool] {
@@ -64,7 +64,7 @@ pub fn rand_array_bool(
 
 ///|
 pub fn rand_array_float(
-  self : MoonData,
+  self : Gen,
   len~ : () -> Int = self.rand_int(1, 10),
   gen~ : () -> Float
 ) -> () -> Array[Float] {
@@ -80,7 +80,7 @@ pub fn rand_array_float(
 
 ///|
 pub fn rand_arrar_double(
-  self : MoonData,
+  self : Gen,
   len~ : () -> Int = self.rand_int(1, 10),
   gen~ : () -> Double
 ) -> () -> Array[Double] {
@@ -96,7 +96,7 @@ pub fn rand_arrar_double(
 
 ///|
 pub fn rand_array_uint(
-  self : MoonData,
+  self : Gen,
   len~ : () -> Int = self.rand_int(1, 10),
   gen~ : () -> UInt
 ) -> () -> Array[UInt] {
@@ -112,7 +112,7 @@ pub fn rand_array_uint(
 
 ///|
 pub fn rand_array_int64(
-  self : MoonData,
+  self : Gen,
   len~ : () -> Int = self.rand_int(1, 10),
   gen~ : () -> Int64
 ) -> () -> Array[Int64] {
@@ -128,7 +128,7 @@ pub fn rand_array_int64(
 
 ///|
 pub fn rand_array_uint64(
-  self : MoonData,
+  self : Gen,
   len~ : () -> Int = self.rand_int(1, 10),
   gen~ : () -> UInt64
 ) -> () -> Array[UInt64] {

@@ -1,11 +1,41 @@
-package lampese/moondata/main
+package Lampese/moondata
 
 // Values
+fn arr_generator_concat[T](arr_gen~ : () -> Array[T], arr_gen_2~ : () -> Array[T]) -> () -> Array[T]
+
+fn gen_arg_code(Array[A]) -> String
+
+fn lock[T](() -> T) -> () -> T
 
 // Types and methods
-type MoonData
-impl MoonData {
-  new(state~ : Bytes) -> Self
+pub enum A {
+  Int(() -> Int)
+  Float(() -> Float)
+  Double(() -> Double)
+  String(() -> String)
+  Bool(() -> Bool)
+  Char(() -> Char)
+  Int64(() -> Int64)
+  UInt64(() -> UInt64)
+  UInt(() -> UInt)
+  ArrayInt(() -> Array[Int])
+  ArrayFloat(() -> Array[Float])
+  ArrayDouble(() -> Array[Double])
+  ArrayString(() -> Array[String])
+  ArrayBool(() -> Array[Bool])
+  ArrayChar(() -> Array[Char])
+  ArrayInt64(() -> Array[Int64])
+  ArrayUInt64(() -> Array[UInt64])
+  ArrayUInt(() -> Array[UInt])
+}
+impl A {
+  to_string(Self) -> String
+}
+impl Show for A
+
+type Gen
+impl Gen {
+  new(state~ : Bytes = ..) -> Self
   rand_arrar_double(Self, len~ : () -> Int = .., gen~ : () -> Double) -> () -> Array[Double]
   rand_array_bool(Self, len~ : () -> Int = .., gen~ : () -> Bool) -> () -> Array[Bool]
   rand_array_char(Self, len~ : () -> Int = .., gen~ : () -> Char) -> () -> Array[Char]
@@ -21,9 +51,18 @@ impl MoonData {
   rand_float(Self, Float, Float) -> () -> Float
   rand_int(Self, Int, Int) -> () -> Int
   rand_int64(Self, Int64, Int64) -> () -> Int64
-  rand_string(Self, len~ : () -> Int = .., char_gen~ : () -> Char) -> String
+  rand_string(Self, len~ : () -> Int = .., char_gen~ : () -> Char) -> () -> String
   rand_uint(Self, UInt, UInt) -> () -> UInt
   rand_uint64(Self, UInt64, UInt64) -> () -> UInt64
+}
+
+pub struct Test {
+  name : String
+  arg : Array[(Array[A], Int)]
+}
+impl Test {
+  new(name~ : String, arg~ : Array[(Array[A], Int)]) -> Self
+  run(Self, output_dir~ : String) -> Unit
 }
 
 // Type aliases
