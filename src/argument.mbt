@@ -79,7 +79,7 @@ pub fn Test::run(self : Test, output_dir~ : String) -> Unit {
     }
   }
   let test_block =
-    $|test "\{self.name}" {
+    $|test {
     $|\{code}}
   @fs.write_string_to_file(
     path=output_dir + "/" + self.name + ".mbt",
