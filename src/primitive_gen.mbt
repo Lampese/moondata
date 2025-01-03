@@ -4,9 +4,7 @@ struct Gen {
 }
 
 ///|
-pub fn Gen::new(
-  state~ : Bytes = b"ABCDEFGHIJKLMNOPQRSTUVWXYZ123456"
-) -> Gen {
+pub fn Gen::new(state~ : Bytes = b"ABCDEFGHIJKLMNOPQRSTUVWXYZ123456") -> Gen {
   { gen: @random.new(seed=state) }
 }
 

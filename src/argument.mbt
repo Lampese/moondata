@@ -69,7 +69,7 @@ pub fn gen_arg_code(arg : Array[A]) -> String {
 }
 
 ///|
-pub fn Test::run(self : Test, output_dir~ : String) -> Unit {
+pub fn Test::run(self : Test, output_dir~ : String, filename~ : String) -> Unit {
   let mut code = ""
   for x in self.arg {
     let (arg, idx) = x
@@ -82,7 +82,7 @@ pub fn Test::run(self : Test, output_dir~ : String) -> Unit {
     $|test {
     $|\{code}}
   @fs.write_string_to_file(
-    path=output_dir + "/" + self.name + ".mbt",
+    path=output_dir + "/" + filename + ".mbt",
     content=test_block,
   )
 }

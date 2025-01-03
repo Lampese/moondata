@@ -62,7 +62,7 @@ pub struct Test {
 }
 impl Test {
   new(name~ : String, arg~ : Array[(Array[A], Int)]) -> Self
-  run(Self, output_dir~ : String) -> Unit
+  run(Self, output_dir~ : String, filename~ : String) -> Unit
 }
 
 // Type aliases
