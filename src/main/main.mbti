@@ -1,0 +1,32 @@
+package lampese/moondata/main
+
+// Values
+
+// Types and methods
+type MoonData
+impl MoonData {
+  new(state~ : Bytes) -> Self
+  rand_arrar_double(Self, len~ : () -> Int = .., gen~ : () -> Double) -> () -> Array[Double]
+  rand_array_bool(Self, len~ : () -> Int = .., gen~ : () -> Bool) -> () -> Array[Bool]
+  rand_array_char(Self, len~ : () -> Int = .., gen~ : () -> Char) -> () -> Array[Char]
+  rand_array_float(Self, len~ : () -> Int = .., gen~ : () -> Float) -> () -> Array[Float]
+  rand_array_int(Self, len~ : () -> Int = .., gen~ : () -> Int) -> () -> Array[Int]
+  rand_array_int64(Self, len~ : () -> Int = .., gen~ : () -> Int64) -> () -> Array[Int64]
+  rand_array_string(Self, len~ : () -> Int = .., gen~ : () -> String) -> () -> Array[String]
+  rand_array_uint(Self, len~ : () -> Int = .., gen~ : () -> UInt) -> () -> Array[UInt]
+  rand_array_uint64(Self, len~ : () -> Int = .., gen~ : () -> UInt64) -> () -> Array[UInt64]
+  rand_bool(Self) -> () -> Bool
+  rand_char(Self) -> () -> Char
+  rand_double(Self, Double, Double) -> () -> Double
+  rand_float(Self, Float, Float) -> () -> Float
+  rand_int(Self, Int, Int) -> () -> Int
+  rand_int64(Self, Int64, Int64) -> () -> Int64
+  rand_string(Self, len~ : () -> Int = .., char_gen~ : () -> Char) -> String
+  rand_uint(Self, UInt, UInt) -> () -> UInt
+  rand_uint64(Self, UInt64, UInt64) -> () -> UInt64
+}
+
+// Type aliases
+
+// Traits
+
