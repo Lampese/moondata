@@ -36,15 +36,8 @@ impl Show for A
 type Gen
 impl Gen {
   new(state~ : Bytes = ..) -> Self
-  rand_arrar_double(Self, len~ : () -> Int = .., gen~ : () -> Double) -> () -> Array[Double]
-  rand_array_bool(Self, len~ : () -> Int = .., gen~ : () -> Bool) -> () -> Array[Bool]
-  rand_array_char(Self, len~ : () -> Int = .., gen~ : () -> Char) -> () -> Array[Char]
-  rand_array_float(Self, len~ : () -> Int = .., gen~ : () -> Float) -> () -> Array[Float]
-  rand_array_int(Self, len~ : () -> Int = .., gen~ : () -> Int) -> () -> Array[Int]
-  rand_array_int64(Self, len~ : () -> Int = .., gen~ : () -> Int64) -> () -> Array[Int64]
-  rand_array_string(Self, len~ : () -> Int = .., gen~ : () -> String) -> () -> Array[String]
-  rand_array_uint(Self, len~ : () -> Int = .., gen~ : () -> UInt) -> () -> Array[UInt]
-  rand_array_uint64(Self, len~ : () -> Int = .., gen~ : () -> UInt64) -> () -> Array[UInt64]
+  rand_array[T](Self, len~ : () -> Int = .., gen~ : () -> T) -> () -> Array[T]
+  rand_array_unique[T : Eq + Hash](Self, len~ : () -> Int = .., gen~ : () -> T) -> () -> Array[T]
   rand_bool(Self) -> () -> Bool
   rand_char(Self) -> () -> Char
   rand_char_range(Self, Int, Int) -> () -> Char
