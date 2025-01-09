@@ -41,6 +41,22 @@ pub fn rand_array_unique[T : Eq + Hash](
 }
 
 ///|
+pub fn rand_array_tuple_2[T, U](
+  self : Gen,
+  len~ : () -> Int,
+  tuple_gen~ : () -> (T, U)
+) -> () -> Array[(T, U)] {
+  fn() {
+    let len = len()
+    let arr = []
+    for i in 0..<len {
+      arr.push(tuple_gen())
+    }
+    arr
+  }
+}
+
+///|
 pub fn array_concat[T](
   arr_gen~ : () -> Array[T],
   arr_gen_2~ : () -> Array[T]
