@@ -1,7 +1,13 @@
 package Lampese/moondata
 
 // Values
-fn arr_generator_concat[T](arr_gen~ : () -> Array[T], arr_gen_2~ : () -> Array[T]) -> () -> Array[T]
+fn array_concat[T](arr_gen~ : () -> Array[T], arr_gen_2~ : () -> Array[T]) -> () -> Array[T]
+
+fn array_repeat[T](arr_gen~ : () -> Array[T], times~ : () -> Int) -> () -> Array[T]
+
+fn array_sorted[T : Compare](arr_gen~ : () -> Array[T]) -> () -> Array[T]
+
+fn const_[T](T) -> () -> T
 
 fn gen_arg_code(Array[A]) -> String
 
@@ -35,8 +41,13 @@ impl Show for A
 
 type Gen
 impl Gen {
+  alpha(Self) -> () -> Char
+  alpha_and_digit(Self) -> () -> Char
+  digit_char(Self) -> () -> Char
+  lower_alpha(Self) -> () -> Char
   new(state~ : Bytes = ..) -> Self
   rand_array[T](Self, len~ : () -> Int = .., gen~ : () -> T) -> () -> Array[T]
+  rand_array_sorted_unique[T : Eq + Hash + Compare](Self, len~ : () -> Int = .., gen~ : () -> T) -> () -> Array[T]
   rand_array_unique[T : Eq + Hash](Self, len~ : () -> Int = .., gen~ : () -> T) -> () -> Array[T]
   rand_bool(Self) -> () -> Bool
   rand_char(Self) -> () -> Char
@@ -49,6 +60,8 @@ impl Gen {
   rand_uint(Self, UInt, UInt) -> () -> UInt
   rand_uint64(Self, UInt64, UInt64) -> () -> UInt64
   select[T](Self, Array[() -> T]) -> () -> T
+  select_proportion[T](Self, Array[() -> T], Array[Int]) -> () -> T
+  upper_alpha(Self) -> () -> Char
 }
 
 pub struct Test {
